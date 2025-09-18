@@ -1,0 +1,363 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Used to center the navbar (main menu) and other space adjustments */
+.navbar {
+    background: #d6eaff;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 3px solid black;
+}
+
+/* Seperates JE duplet and the menu and puts them at opposite sides of the website */
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+/* Customizes the JE Duplet (or whatever is at the top left part */
+#navbar__logo {
+    background-image: linear-gradient(to right, #4a90e2, #6fb1fc); /* muted royal → soft sky blue */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 3rem;
+    font-family: 'Sacramento', cursive;
+}
+
+/* Class for icon */
+.fa-gem {
+    margin-right: 0.5rem;
+}
+
+/* Puts menu/navbar in a horizontal way */
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+/* Moves up Home, Tech, and Products */
+.navbar__item {
+    height: 80px; 
+}
+
+/* Changes color and spacing (relative to each other) of Home, Tech, and Products */
+.navbar__links {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 1.2rem;
+    height: 100%;
+}
+
+/* Spaces the Sign Up section properly */
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+/* Adds the border around Sign Up */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 12px 28px;
+    height: auto;
+    width: auto;
+    border: none;
+    outline: none; 
+    border-radius: 6px;
+    background-color: black;
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Adds the transition for when you hover over he Sign Up button */
+.button:hover {
+    background-color: white;        /* background becomes white */
+    color: black;                   /* text becomes black */
+    border: 2px solid black;        /* optional: keep a visible border */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Adds the transition for when you hover over Home, Tech or Products */
+.navbar__links:hover {
+    color: white;                   /* text turns white */
+    transition: all 0.3s ease;
+}
+
+/* Puts the navbar/menu into a dropdown format (when tab is compressed) */
+@media screen and (max-width: 960px) {
+    .navbar__container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+    
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 0;
+        transition: all 0.5s ease;
+        height: 50vh;
+        z-index: -1;
+    }
+
+    /* javascript related portion */
+    .navbar__menu.active {
+        background: #fff;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 50vh;
+        font-size: 1.6rem;
+    }
+
+    #navbar__logo {
+        padding-left: 25px;
+    }
+
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #4a90e2;
+    }
+
+    .navbar__item {
+        width: 100%;
+    }
+
+    .navbar__links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    .navbar__btn {
+        padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+
+    .navbar__toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+.main {
+    background-color: #F0F8FF; 
+    padding: 30px 0; /* optional: spacing around the section */
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns: FAQ | Image */
+    align-items: center;
+    gap: 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Booking Questions section */
+.faq__left {
+    text-align: left;
+}
+
+.faq__left h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Questrial', sans-serif;
+}
+
+.faq__item {
+    margin-bottom: 0.5rem;
+}
+
+.faq__question {
+    width: 100%;
+    padding: 12px 16px;
+    text-align: left;
+    border: 2px solid black;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: white;
+    border: 2px solid black;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 0 20px;
+}
+
+.faq__answer p {
+    padding: 10px 0;
+    margin: 0;
+}
+
+.faq__right img {
+    margin-top: 50px;
+    width: 100%;
+    max-height: 1000px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 960px) {
+    .main__container {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+
+    .faq__right {
+        margin-top: 2rem;
+    }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 760px) {
+    .main__container {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+    }
+
+    .main__content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .main__content h1 {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .main__content h2 {
+        font-size: 3rem;
+    }
+
+    .main__content p {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main__content h1 {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+
+    .main__content h2 {
+        font-size: 2rem;
+    }
+
+    .main__content p {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .main__btn {
+        padding: 12px 36px;
+        margin: 2.5rem 0;
+    }
+}
+
+/* Footer CSS */
+.footer__container {
+    background-color: #F0F8FF;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__logo {
+    color: black;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Sacramento', cursive;
+}
