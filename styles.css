@@ -381,9 +381,41 @@
 
 .footer__logo {
     color: black;
-    font-family: 'Sacramento', cursive;
     font-size: 2rem;
-    font-weight: 100;
+    font-weight: 700;
     margin-bottom: 0.5rem;
     text-align: center;
+    margin-top: 50px;
+    font-family: 'Sacramento', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px; /* space between text and icon */
+}
+
+/* icons for social media */
+.footer__socials {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between Instagram and YouTube */
+}
+
+.footer__icon {
+    font-size: 2.5rem;  /* make the Instagram icon bigger */
+    color: black;       /* default color */
+    transition: color 0.3s ease;
+}
+
+.footer__icon i.fa-youtube{
+    font-size: 2.5rem;  /* make the Instagram icon bigger */
+    color: black;       /* default color */
+    transition: color 0.3s ease;
+}
+
+.footer__icon:hover {
+    color: #E1306C;     /* Instagram pink on hover */
+}
+
+.footer__icon:hover i.fa-youtube {
+    color: #FF0000; /* YouTube red on hover */
 }
